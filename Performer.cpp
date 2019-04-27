@@ -10,6 +10,9 @@
 Performer :: Performer() {
 	name = new std::string;
 	surname = new std::string;
+
+	std::cout << "введ≥ть призвиче та ≥м€ виконавц€ через пропуск" << std::endl;
+	std::cin >> *surname >> *name;
 }
 
 Performer::Performer(const Performer &obj)
@@ -40,7 +43,7 @@ Performer::~Performer()
 
 
 void Performer::show() {
-	std::cout << name << ' ' << surname;
+	std::cout << *name << ' ' << *surname;
 }
 
 

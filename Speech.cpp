@@ -12,11 +12,6 @@ Speech::Speech()
 
 	comp = inp_comp(comp);
 
-
-
-	
-
-
 }
 
 Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nmae)
@@ -45,17 +40,17 @@ std::string Speech::get_speech_nmae()
 void Speech::show_comp(Composition comp) {
 	switch (comp)
 	{
-	case 0: std::cout << "instrumental" << std::endl; break;
-	case 1: std::cout << "vocal" << std::endl; break;
-	case 2: std::cout << "poetic" << std::endl; break;
-	case 3: std::cout << "prose" << std::endl; break;
+	case 0: std::cout << "instrumental" ; break;
+	case 1: std::cout << "vocal" ; break;
+	case 2: std::cout << "poetic" ; break;
+	case 3: std::cout << "prose" ; break;
 	};
 }
 
 void Speech::show()
 {
 	show_comp(comp);
-	std::cout << speech_nmae << ' ' << std::endl;
+	std::cout<< ' ' << speech_nmae << ' ' ;
 	performer.show();
 }
 
