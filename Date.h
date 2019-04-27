@@ -1,5 +1,5 @@
 #pragma once
-//#include "Date.cpp"
+
 class Date
 {
 	int day;
@@ -9,7 +9,7 @@ class Date
 	
 public:
 	Date();
-	Date(int , int, int);
+	Date(int _day, int _mounth, int _year);
 	Date(const Date& obj); //copy construct
 
 	int get_day() { return day; };

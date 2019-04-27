@@ -9,16 +9,22 @@
 
 
 Concert::Concert()
-{
+{	
+
 	sponsor = new std::string;
-	Date date();
+	std::cout << "¬вед≥ть назву ф≥рми-орган≥затора" << std::endl;
+
+	std::cin >> *sponsor;
+
+	
+	speechs = new Speech[1];
 	
 }
 
 
 void Concert::show()
 {
-	std::cout << sponsor << std::endl;
+	std::cout << *sponsor << std::endl;
 	date.show();
 	std::cout<< std::endl;
 	speechs[0].show();

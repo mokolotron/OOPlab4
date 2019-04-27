@@ -1,10 +1,10 @@
-#pragma once
+#include <string>
+#include <iostream>
 #include "Performer.h"
 
 
-#include <string.h>
-#include <string>
-#include <iostream>
+
+
 
 
 Performer :: Performer() {
