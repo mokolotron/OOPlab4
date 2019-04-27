@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 #include <string>
 #include "Compsition.h"
 #include "Performer.h"
@@ -6,9 +6,16 @@
 
 
 Speech::Speech()
-{
-	std::cout << "Speech"<<std::endl; //debug
+{	
+	std::cout << "¬вед≥ть назву виступу" << std::endl;
+	std::cin >> speech_nmae;
+
 	comp = inp_comp(comp);
+
+
+
+	
+
 
 }
 
@@ -44,6 +51,7 @@ void Speech::show_comp(Composition comp) {
 	case 3: std::cout << "prose" << std::endl; break;
 	};
 }
+
 void Speech::show()
 {
 	show_comp(comp);

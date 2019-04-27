@@ -136,6 +136,9 @@
     <ClCompile Include="Performer.cpp" />
     <ClCompile Include="Speech.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Desktop\debug.TXT" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
