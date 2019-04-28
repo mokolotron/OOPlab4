@@ -18,6 +18,7 @@ private:
 public:
 	Speech();
 	Speech(Composition, Performer, std::string);
+	Speech(const Speech& obj);
 	
 	Composition get_comp();
 	Performer get_performer();

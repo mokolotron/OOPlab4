@@ -7,10 +7,9 @@
 
 Speech::Speech()
 {	
-	std::cout << "Введіть назву виступу" << std::endl;
-	std::cin >> speech_nmae;
-
-	comp = inp_comp(comp);
+	//std::cout << "Введіть назву виступу" << std::endl;
+	 speech_nmae ="Назва виступу"  ;
+	 comp = instrumental;
 
 }
 
@@ -19,6 +18,13 @@ Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nma
 	comp = _comp;
 	performer = _performer;
 	speech_nmae = _speech_nmae;
+}
+Speech::Speech(const Speech& obj)
+{
+	comp = obj.comp;
+	performer = obj.performer;
+	speech_nmae = obj.speech_nmae;
+
 }
 //getters
 Composition Speech::get_comp()

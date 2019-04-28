@@ -8,21 +8,25 @@
 
 Date::Date()
 {	
-	std::cout << "ââåä³òü â ôîğìàò³ dd mm yyyy"<< std::endl;
-	std::cin >>day;
-	
+	//std::cout << "ââåä³òü â ôîğìàò³ dd mm yyyy"<< std::endl;
+	//std::cin >>day;
+	//
 
-	std::cin >>mounth;
+	//std::cin >>mounth;
 
-	set_mounth(mounth);
-	set_day(day);
+	//set_mounth(mounth);
+	//set_day(day);
 
-	std::cin >> year;
-	set_year(year);
+	//std::cin >> year;
+	//set_year(year);
+
+	day = 1;
+	mounth = 1;
+	year = 1000;
 
 }
 
-Date::Date(int _day = 1, int _mounth = 1, int _year = 1001)
+Date::Date(int _day, int _mounth, int _year)
 {
 	if (_day > 0 && _mounth > 0) {
 		if (_day < max_day(_mounth)) day = _day;
