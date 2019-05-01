@@ -29,16 +29,18 @@ int main() {
 	int n = 2;
 	Speech* speech_arr = new Speech[n];
 
-	//?
-	//for (int i = 0; i < n; i++) {
-	//	Speech *temp = new Speech;
-	//	temp->set_comp(instrumental); // ?
-	//	temp->set_performer(Performer("Some", "User"));
-	//	temp->set_speech_nmae("name1");
-	//	speech_arr[i] = *temp;
-	//	delete temp;
-	//}
-	Concert concert2(conc_name, 22, 11, 1111, n, speech_arr);
+
+	for (int i = 0; i < n; i++) {
+		
+		Performer *tmpperf = new Performer("new", "user");
+		Speech* tempi = new Speech(vocal, *tmpperf, "name1");
+		//tempi->set_comp(instrumental); // ?
+		//tempi->set_performer(*tmpperf);
+		//tempi->set_speech_nmae("name1");
+		speech_arr[i] = *tempi;
+		delete tempi;
+	}
+	Concert concert2(conc_name, Date(11, 11, 2000), n, speech_arr);
 	concert2.show();
 
 }

@@ -7,22 +7,21 @@
 
 Speech::Speech()
 {	
-	//std::cout << "Введіть назву виступу" << std::endl;
 	 speech_nmae ="Назва виступу"  ;
+	 Performer performer("default", "user");
 	 comp = instrumental;
-
 }
 
 Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nmae)
 {
 	comp = _comp;
-	performer = _performer;
+	set_performer(_performer);
 	speech_nmae = _speech_nmae;
 }
 Speech::Speech(const Speech& obj)
 {
 	comp = obj.comp;
-	performer = obj.performer;
+	Performer performer(obj.performer);
 	speech_nmae = obj.speech_nmae;
 
 }
@@ -70,7 +69,8 @@ Speech Speech::set_comp(Composition _comp)
 
 Speech Speech::set_performer(Performer _performer)
 {
-	performer = _performer;
+	performer.set_name(_performer.get_name());
+	performer.set_surname(_performer.get_surname());
 	return *this;
 }
 
