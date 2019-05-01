@@ -88,10 +88,10 @@ Speech::~Speech()
 
 
 
-  Composition Speech :: inp_comp(Composition comp) {
+  Composition Speech :: inp_comp() {
 	using namespace std;
 
-
+	Composition comp;
 	int input;
 	cout << "Введіть номер типу твору. Щоб побачити можливі варіанти твору введіть \'-1\'  " << endl;
 	cin >> input;
@@ -106,10 +106,10 @@ Speech::~Speech()
 		cout << '1' << " = " << "vocal" << endl;
 		cout << '2' << " = " << "poetic" << endl;
 		cout << '3' << " = " << "prose" << endl;
-		comp = inp_comp(comp);
+		comp = inp_comp();
 	default:
 		cout << "Невірно введено спробуйте щераз" << endl;
-		comp = inp_comp(comp);
+		comp = inp_comp();
 		return comp;
 		break;
 	}

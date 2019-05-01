@@ -26,6 +26,7 @@ void Concert::show()
 {
 	std::cout << *sponsor << ' ';
 	date.show();
+	std::cout << std::endl;
 	for (int i = 0; i < coun_speech; i++) {
 		std::cout << ' ';
 		speechs[i].show();
