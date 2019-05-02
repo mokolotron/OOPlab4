@@ -9,8 +9,8 @@ class Concert
 	int coun_speech;
 public:
 	Concert();
-	Concert(std::string* s, int dd, int mm, int yyyy, int coun_speech, Speech* speech_arr) :
-		sponsor(s), date(dd, mm, yyyy), coun_speech(coun_speech), speechs(speech_arr) {};
+	Concert(std::string *s, Date _date, int _coun_speech, Speech* speech_arr) :
+		sponsor(s), date(_date), coun_speech(_coun_speech), speechs(speech_arr) {};
 
 
 	void show();

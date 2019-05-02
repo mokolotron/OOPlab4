@@ -12,7 +12,8 @@ Performer :: Performer() {
 	surname = new std::string;
 
 	
-
+	*name = "default";
+	*surname = "user";
 /*
 	std::cout << "введ≥ть призвиче та ≥м€ виконавц€ через пропуск" << std::endl;
 	std::cin >> *surname >> *name;*/
@@ -41,8 +42,8 @@ Performer::Performer(std::string _name = "NULL", std::string _surname = "NULL") 
 
 Performer::~Performer()
 {
-	delete name;
-	delete surname;
+	//delete name;
+	//delete surname;
 }
 
 
@@ -52,12 +53,12 @@ void Performer::show() {
 }
 
 
-Performer& Performer::set_name(std::string str) {
+Performer Performer::set_name(std::string str) {
 	*name = str;
 	return *this;
 }
 
-Performer& Performer::set_surname(std::string str) {
+Performer Performer::set_surname(std::string str) {
 	*surname = str;
 	return *this;
 }

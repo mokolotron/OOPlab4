@@ -23,8 +23,8 @@ public:
 	
 	void show();
 
-	Performer& set_name(std::string str);
-	Performer& set_surname(std::string str);
+	Performer set_name(std::string str);
+	Performer set_surname(std::string str);
 
 
 };

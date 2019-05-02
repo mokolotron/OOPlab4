@@ -6,9 +6,10 @@
 #include <windows.h>
 using namespace std;
 struct Args {
-	string conc_name;
-	int dd, mm, yyyy;
+	string *conc_name;
+	Date date;
 	Speech * speech_arr = new Speech;
+	int n;
 };
 Args input_args();
 
@@ -24,27 +25,45 @@ int main() {
 	cout << endl;
 	Args args_struct = input_args();
 
-	string *conc_name = new string;
-	*conc_name = "conc name";
-	int n = 2;
-	Speech* speech_arr = new Speech[n];
-
-	//?
-	//for (int i = 0; i < n; i++) {
-	//	Speech *temp = new Speech;
-	//	temp->set_comp(instrumental); // ?
-	//	temp->set_performer(Performer("Some", "User"));
-	//	temp->set_speech_nmae("name1");
-	//	speech_arr[i] = *temp;
-	//	delete temp;
-	//}
-	Concert concert2(conc_name, 22, 11, 1111, n, speech_arr);
+	Concert concert2(args_struct.conc_name,args_struct.date , args_struct.n, args_struct.speech_arr);
 	concert2.show();
-
 }
 
 Args input_args() {
 	Args args;
+	string* conc_name = new string;
+	cout << "¬вед≥ть назву концерту : ";
+	cin >> *conc_name;
+	int n = 1;
+	Speech* speech_arr = new Speech[n];
+	string tmpname, tmpsurname, tmpspeechname;
+	int inp_n;
+	
+	for (int i = 0; i < n; i++) {
 
+		cout << "¬вед≥ть назву виступу #" << i+1 <<" : ";
+		cin >> tmpspeechname;
+
+		cout << "¬вед≥ть ≤м€ та пр≥звище виконавц€ цього виступу : ";
+		cin >> tmpname >> tmpsurname;
+				
+		Speech *tmpspeech = new Speech();
+		tmpspeech->set_comp(tmpspeech->inp_comp());
+		
+		Performer* tmpperf = new Performer(tmpname, tmpsurname);
+		Speech* tempi = new Speech(tmpspeech->get_comp(), *tmpperf, tmpspeechname);
+		speech_arr[i] = *tempi;
+		delete tmpspeech;
+		delete tmpperf;
+		delete tempi;
+
+		cout << "ўоб добавити ще один виступ введ≥ть \'1\' : ";
+		cin >> inp_n;
+		if (inp_n == 1) n++;
+	}
+	args.conc_name = conc_name;
+	args.speech_arr = speech_arr;
+	args.date = Date(11, 11, 2000);
+	args.n = n;
 	return args;
 }
