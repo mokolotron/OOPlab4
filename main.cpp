@@ -27,6 +27,8 @@ int main() {
 
 	Concert concert2(args_struct.conc_name,args_struct.date , args_struct.n, args_struct.speech_arr);
 	concert2.show();
+	cout << endl;
+	concert2.short_show();
 }
 
 Args input_args() {
@@ -37,8 +39,12 @@ Args input_args() {
 	int n = 1;
 	Speech* speech_arr = new Speech[n];
 	string tmpname, tmpsurname, tmpspeechname;
-	int inp_n;
+	int inp_n, dd , mm, yyyy;
 	
+	cout << "Введіть Дату початку концерту у форматі dd mm yyyy : ";
+	cin >> dd>>mm>> yyyy;
+	args.date = Date(dd, mm, yyyy);
+
 	for (int i = 0; i < n; i++) {
 
 		cout << "Введіть назву виступу #" << i+1 <<" : ";
@@ -53,17 +59,18 @@ Args input_args() {
 		Performer* tmpperf = new Performer(tmpname, tmpsurname);
 		Speech* tempi = new Speech(tmpspeech->get_comp(), *tmpperf, tmpspeechname);
 		speech_arr[i] = *tempi;
+
 		delete tmpspeech;
 		delete tmpperf;
 		delete tempi;
 
 		cout << "Щоб добавити ще один виступ введіть \'1\' : ";
 		cin >> inp_n;
-		if (inp_n == 1) n++;
+		if (inp_n == 1) ++n;
 	}
 	args.conc_name = conc_name;
 	args.speech_arr = speech_arr;
-	args.date = Date(11, 11, 2000);
+	
 	args.n = n;
 	return args;
 }
