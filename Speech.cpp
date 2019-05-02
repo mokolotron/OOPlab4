@@ -107,6 +107,7 @@ Speech::~Speech()
 		cout << '2' << " = " << "poetic" << endl;
 		cout << '3' << " = " << "prose" << endl;
 		comp = inp_comp();
+		break;
 	default:
 		cout << "Невірно введено спробуйте щераз" << endl;
 		comp = inp_comp();
