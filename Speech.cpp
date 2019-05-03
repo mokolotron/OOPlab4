@@ -8,14 +8,17 @@
 Speech::Speech()
 {	
 	 speech_nmae ="Назва виступу"  ;
-	 Performer performer("default", "user");
+	 Performer performer();
 	 comp = instrumental;
 }
 
 Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nmae)
-{
-	comp = _comp;
-	set_performer(_performer);
+{	
+comp = _comp;
+	//Performer performer(_performer.get_name(), _performer.get_surname());
+	performer.set_name(_performer.get_name());
+	performer.set_surname(_performer.get_surname());
+	
 	speech_nmae = _speech_nmae;
 }
 Speech::Speech(const Speech& obj)

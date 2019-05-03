@@ -12,6 +12,8 @@ struct Args {
 	int n;
 };
 Args input_args();
+Speech* addsize(Speech* old_arr, int old_size, int new_size);
+
 
 int main() {
 	
@@ -29,6 +31,7 @@ int main() {
 	concert2.show();
 	cout << endl;
 	concert2.short_show();
+	return 0;
 }
 
 Args input_args() {
@@ -60,17 +63,29 @@ Args input_args() {
 		Speech* tempi = new Speech(tmpspeech->get_comp(), *tmpperf, tmpspeechname);
 		speech_arr[i] = *tempi;
 
-		delete tmpspeech;
 		delete tmpperf;
+		delete tmpspeech;
 		delete tempi;
 
 		cout << "ўоб добавити ще один виступ введ≥ть \'1\' : ";
 		cin >> inp_n;
-		if (inp_n == 1) ++n;
+		if (inp_n == 1) {
+			++n;
+			speech_arr = addsize(speech_arr, 1, n);
+		}
 	}
 	args.conc_name = conc_name;
 	args.speech_arr = speech_arr;
-	
+
 	args.n = n;
 	return args;
+}
+//проблема в тому щоб масив speechs_arr у не розширюэтьс€ !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Speech* addsize(Speech* old_arr,int old_size ,int new_size) {
+	Speech * new_arr = new Speech[new_size];
+	for (int i = 0; i < old_size; i++)
+		new_arr[i] = old_arr[i];
+	delete [] old_arr;
+	return new_arr;
 }

@@ -11,10 +11,8 @@ private:
 	Performer performer;
 	std::string speech_nmae;
 
-	
 	void show_comp(Composition comp);
-	 
-
+	
 public:
 	Speech();
 	Speech(Composition, Performer, std::string);
