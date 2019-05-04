@@ -5,9 +5,6 @@
 #include "Concert.h"
 #include <time.h> 
 
-
-
-
 Concert::Concert()
 {	
 
@@ -17,6 +14,15 @@ Concert::Concert()
 	speechs = new Speech[coun_speech];
 }
 
+Concert::Concert(const Concert& obj)
+{
+	coun_speech = obj.coun_speech;
+	speechs = new Speech[obj.coun_speech];
+	for (int i = 0; i < coun_speech; i++)
+		speechs[i] = obj.speechs[i];
+	sponsor = obj.sponsor;
+	date = Date(obj.date);
+}
 
 
 void Concert::show()
@@ -31,6 +37,7 @@ void Concert::show()
 
 }
 
+
 void Concert::short_show() {
 	std::cout << *sponsor << ' '; date.show();
 }
@@ -38,4 +45,5 @@ void Concert::short_show() {
 
 Concert::~Concert()
 {
+	//delete sponsor;
 }

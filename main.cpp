@@ -21,16 +21,30 @@ int main() {
 	SetConsoleCP(1251);
 	
 	Concert concert;
-	cout << endl;
-	concert.show();
 
-	cout << endl;
+	cout <<"Цей обєкт створений конструктором по замовчуванню: "<<endl;
+	concert.show();
+	cout << endl << endl;
+
+
 	Args args_struct = input_args();
 
 	Concert concert2(args_struct.conc_name,args_struct.date , args_struct.n, args_struct.speech_arr);
 	concert2.show();
 	cout << endl;
+	cout << "Коротка форма" << endl;
 	concert2.short_show();
+
+	cout <<endl<< endl << "Це дані що містятся у третьому обєкті типу концерт" << endl
+		<< "Він створений конструктором копіювання" << endl;
+
+	Concert concert3(concert2);
+	cout << "Коротка форма" << endl;
+	concert3.show();
+	cout << endl;
+
+	concert3.short_show();
+
 	return 0;
 }
 
@@ -71,16 +85,17 @@ Args input_args() {
 		cin >> inp_n;
 		if (inp_n == 1) {
 			++n;
-			speech_arr = addsize(speech_arr, 1, n);
+			speech_arr = addsize(speech_arr, n-1, n);
 		}
 	}
 	args.conc_name = conc_name;
 	args.speech_arr = speech_arr;
-
+	for (int i = 0; i < n; i++)
+		args.speech_arr[i] = speech_arr[i];
+	//delete[] speech_arr;
 	args.n = n;
 	return args;
 }
-//проблема в тому щоб масив speechs_arr у не розширюэться !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Speech* addsize(Speech* old_arr,int old_size ,int new_size) {
 	Speech * new_arr = new Speech[new_size];
