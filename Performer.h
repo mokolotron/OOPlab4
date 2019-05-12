@@ -1,6 +1,8 @@
 
 #pragma once
+
 #include <string>
+#include <iostream>
 
 
 
@@ -26,6 +28,7 @@ public:
 	Performer set_name(std::string str);
 	Performer set_surname(std::string str);
 
+	void filldata();
 
 };
 

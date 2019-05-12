@@ -1,29 +1,15 @@
 
 
-#include <iostream>
-#include <iomanip>
+
 #include "Date.h"
 
 
 
 Date::Date()
 {	
-	//std::cout << "введіть в форматі dd mm yyyy"<< std::endl;
-	//std::cin >>day;
-	//
-
-	//std::cin >>mounth;
-
-	//set_mounth(mounth);
-	//set_day(day);
-
-	//std::cin >> year;
-	//set_year(year);
-
 	day = 1;
 	mounth = 1;
 	year = 1000;
-
 }
 
 Date::Date(int _day, int _mounth, int _year)
@@ -51,6 +37,15 @@ void Date ::  show() {
 	std::cout << std::setfill('0') << std::setw(2) << get_day()
 		<< '.' << std::setw(2) << get_mounth()
 		<< '.' << std::setw(2) << get_year();
+}
+
+void Date::filldata() {
+	int _day, _mounth, _year;
+	std::cout << "Введіть Дату початку концерту у форматі dd mm yyyy : ";
+	std::cin >> _day >> _mounth >> _year;
+	set_day(_day);
+	set_mounth(_mounth);
+	set_year(_year);
 }
 
 Date::~Date()

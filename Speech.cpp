@@ -1,30 +1,27 @@
-#include <iostream>
-#include <string>
-#include "Compsition.h"
-#include "Performer.h"
 #include "Speech.h"
 
 
 Speech::Speech()
 {	
 	 speech_nmae ="Назва виступу"  ;
-	 Performer performer();
+	 Performer *performer = new Performer();
 	 comp = instrumental;
 }
 
 Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nmae)
 {	
-comp = _comp;
+	Performer* performer = new Performer();
+	comp = _comp;
 	//Performer performer(_performer.get_name(), _performer.get_surname());
-	performer.set_name(_performer.get_name());
-	performer.set_surname(_performer.get_surname());
+	performer->set_name(_performer.get_name());
+	performer->set_surname(_performer.get_surname());
 	
 	speech_nmae = _speech_nmae;
 }
 Speech::Speech(const Speech& obj)
 {
 	comp = obj.comp;
-	Performer performer(obj.performer);
+	Performer *performer = new Performer(obj.performer);
 	speech_nmae = obj.speech_nmae;
 
 }
@@ -83,13 +80,18 @@ Speech Speech::set_speech_nmae(std::string _name)
 	return *this;
 }
 
-
+void Speech::filldata()
+{
+	using namespace std;
+	cout << "Введіть назву нового виступу : ";
+	cin >> speech_nmae;
+	performer.filldata();
+	comp = inp_comp();
+}
 
 Speech::~Speech()
 {
 }
-
-
 
   Composition Speech :: inp_comp() {
 	using namespace std;
@@ -110,7 +112,6 @@ Speech::~Speech()
 		cout << '2' << " = " << "poetic" << endl;
 		cout << '3' << " = " << "prose" << endl;
 		comp = inp_comp();
-		
 		break;
 	default:
 		cout << "Невірно введено спробуйте щераз" << endl;

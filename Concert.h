@@ -1,5 +1,8 @@
 
 #pragma once
+#include "Speech.h"
+#include <time.h> 
+
 
 class Concert
 {
@@ -15,7 +18,10 @@ public:
 	Concert(const Concert& obj);
 	void short_show();
 	void show();
-	
+	void addspeech();
 	~Concert();
+	void filldata();
+
+	Speech* addsize(Speech* old_arr, int old_size, int new_size);
 };
 
