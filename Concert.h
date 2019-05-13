@@ -22,6 +22,12 @@ public:
 	~Concert();
 	void filldata();
 
+	std::string * get_sponsor();
+	Date get_date();
+	Speech * get_speeechs();
+	int get_coun();
+
+
 	Speech* addsize(Speech* old_arr, int old_size, int new_size);
 };
 

@@ -2,19 +2,17 @@ concert_name2
 11 11 2011
 1
 name_speech1
-Fisher Dot
+Fisher person
 -1
 2
 1
 name_speech2
-Second Brad
+Second person
 1
 0
 
-
-concert_name2
-11 11 2011
-name_speech1
-Fisher Dot
+1
+name_speech3
+Third person
 2
-2
+0

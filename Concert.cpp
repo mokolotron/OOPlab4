@@ -91,3 +91,11 @@ void Concert::filldata()
 
 }
 
+std::string * Concert::get_sponsor(){	return sponsor;}
+
+Date Concert::get_date(){return date;}
+
+Speech* Concert::get_speeechs(){return speechs;}
+
+int Concert::get_coun(){return coun_speech;}
+
