@@ -5,46 +5,47 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
-struct Args {
-	string conc_name;
-	int dd, mm, yyyy;
-	Speech * speech_arr = new Speech;
-};
-Args input_args();
 
 int main() {
+	int input = 1;
 	
 	SetConsoleOutputCP(1251);
 	SetConsoleCP(1251);
 	
 	Concert concert;
-	cout << endl;
+
+	cout <<"Цей обєкт створений конструктором по замовчуванню: "<<endl;
 	concert.show();
+	cout << endl << endl;
 
-	cout << endl;
-	Args args_struct = input_args();
-
-	string *conc_name = new string;
-	*conc_name = "conc name";
-	int n = 2;
-	Speech* speech_arr = new Speech[n];
-
-	//?
-	//for (int i = 0; i < n; i++) {
-	//	Speech *temp = new Speech;
-	//	temp->set_comp(instrumental); // ?
-	//	temp->set_performer(Performer("Some", "User"));
-	//	temp->set_speech_nmae("name1");
-	//	speech_arr[i] = *temp;
-	//	delete temp;
-	//}
-	Concert concert2(conc_name, 22, 11, 1111, n, speech_arr);
+	Concert* tconcert = new Concert();
+	tconcert->filldata();
+	Concert concert2(tconcert->get_sponsor(), tconcert->get_date(), tconcert->get_coun(), tconcert->get_speeechs());
+	delete tconcert;
 	concert2.show();
+	cout << endl;
+	cout << "Коротка форма" << endl;
+	concert2.short_show();
+	
+	cout <<endl<< endl << "Це дані що містятся у третьому обєкті типу концерт" << endl
+		<< "Він створений конструктором копіювання" << endl;
+	Concert concert3(concert2);
+	cout << "Коротка форма" << endl;
+	concert3.show();
+	cout << endl;
+	concert3.short_show();
 
-}
+	while (true) {
+		cout<<endl << "Щоб довати ще один виступ до третього обєкта введыть \' 1 \' , щоб вийти введіть 0" << endl;
+		cin >> input;
+		if (input == 0) break;
+		else if (input != 1) {
+			cout << "Невірно введено" << endl;
+			continue;
+		}
+	concert3.addspeech();
+	}
+	concert3.show();
 
-Args input_args() {
-	Args args;
-
-	return args;
+	return 0;
 }

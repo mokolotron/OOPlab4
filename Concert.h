@@ -1,5 +1,8 @@
 
 #pragma once
+#include "Speech.h"
+#include <time.h> 
+
 
 class Concert
 {
@@ -7,13 +10,24 @@ class Concert
 	Date date;
 	Speech * speechs;
 	int coun_speech;
+	
 public:
 	Concert();
-	Concert(std::string* s, int dd, int mm, int yyyy, int coun_speech, Speech* speech_arr) :
-		sponsor(s), date(dd, mm, yyyy), coun_speech(coun_speech), speechs(speech_arr) {};
-
-
+	Concert(std::string *s, Date _date, int _coun_speech, Speech* speech_arr) :
+		sponsor(s), date(_date), coun_speech(_coun_speech), speechs(speech_arr) {};
+	Concert(const Concert& obj);
+	void short_show();
 	void show();
+	void addspeech();
 	~Concert();
+	void filldata();
+
+	std::string * get_sponsor();
+	Date get_date();
+	Speech * get_speeechs();
+	int get_coun();
+
+
+	Speech* addsize(Speech* old_arr, int old_size, int new_size);
 };
 

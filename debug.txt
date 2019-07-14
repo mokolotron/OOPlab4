@@ -1,5 +1,18 @@
-11 12 2000
-Firma-Organaizer
-Piiys Mykola
-NazvaVustupu
+concert_name2
+11 11 2011
+1
+name_speech1
+Fisher person
+-1
 2
+1
+name_speech2
+Second person
+1
+0
+
+1
+name_speech3
+Third person
+2
+0

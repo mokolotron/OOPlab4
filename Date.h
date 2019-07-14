@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <iomanip>
 
 class Date
 {
@@ -17,6 +19,8 @@ public:
 	int get_year() { return year; };
 
 	void show();
+
+	void filldata();
 
 	Date& set_day(int);
 	Date& set_mounth(int _mounth);

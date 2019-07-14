@@ -1,23 +1,14 @@
-#include <string>
-#include <iostream>
+
 #include "Performer.h"
-
-
-
-
-
 
 Performer :: Performer() {
 	name = new std::string;
 	surname = new std::string;
 
 	
+	*name = "default";
+	*surname = "user";
 
-/*
-	std::cout << "введ≥ть призвиче та ≥м€ виконавц€ через пропуск" << std::endl;
-	std::cin >> *surname >> *name;*/
-
-	
 }
 
 Performer::Performer(const Performer &obj)
@@ -41,23 +32,27 @@ Performer::Performer(std::string _name = "NULL", std::string _surname = "NULL") 
 
 Performer::~Performer()
 {
-	delete name;
-	delete surname;
+	//delete name;
+	//delete surname;
 }
-
-
 
 void Performer::show() {
 	std::cout << *name << ' ' << *surname;
 }
 
 
-Performer& Performer::set_name(std::string str) {
+Performer Performer::set_name(std::string str) {
 	*name = str;
 	return *this;
 }
 
-Performer& Performer::set_surname(std::string str) {
+Performer Performer::set_surname(std::string str) {
 	*surname = str;
 	return *this;
+}
+
+void Performer::filldata()
+{
+	std::cout << "¬вед≥ть ≤м€ та пр≥звище виконавц€ цього виступу : ";
+	std::cin >> *name >> *surname;
 }

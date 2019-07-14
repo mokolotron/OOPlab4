@@ -1,7 +1,9 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include "Compsition.h"
 #include "Performer.h"
+
 
 
 class Speech
@@ -11,10 +13,8 @@ private:
 	Performer performer;
 	std::string speech_nmae;
 
-	Composition inp_comp(Composition comp);
 	void show_comp(Composition comp);
-	 
-
+	
 public:
 	Speech();
 	Speech(Composition, Performer, std::string);
@@ -29,7 +29,8 @@ public:
 	Speech set_comp(Composition);
 	Speech set_performer(Performer);
 	Speech set_speech_nmae(std::string _name);
-
+	void filldata();
+	Composition inp_comp();
 	~Speech();
 };
 
