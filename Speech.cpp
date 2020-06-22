@@ -7,22 +7,24 @@
 
 Speech::Speech()
 {	
-	//std::cout << "Введіть назву виступу" << std::endl;
 	 speech_nmae ="Назва виступу"  ;
+	 Performer performer();
 	 comp = instrumental;
-
 }
 
 Speech::Speech(Composition _comp, Performer _performer , std::string _speech_nmae)
-{
-	comp = _comp;
-	performer = _performer;
+{	
+comp = _comp;
+	//Performer performer(_performer.get_name(), _performer.get_surname());
+	performer.set_name(_performer.get_name());
+	performer.set_surname(_performer.get_surname());
+	
 	speech_nmae = _speech_nmae;
 }
 Speech::Speech(const Speech& obj)
 {
 	comp = obj.comp;
-	performer = obj.performer;
+	Performer performer(obj.performer);
 	speech_nmae = obj.speech_nmae;
 
 }
@@ -70,7 +72,8 @@ Speech Speech::set_comp(Composition _comp)
 
 Speech Speech::set_performer(Performer _performer)
 {
-	performer = _performer;
+	performer.set_name(_performer.get_name());
+	performer.set_surname(_performer.get_surname());
 	return *this;
 }
 
@@ -88,10 +91,10 @@ Speech::~Speech()
 
 
 
-  Composition Speech :: inp_comp(Composition comp) {
+  Composition Speech :: inp_comp() {
 	using namespace std;
 
-
+	Composition comp;
 	int input;
 	cout << "Введіть номер типу твору. Щоб побачити можливі варіанти твору введіть \'-1\'  " << endl;
 	cin >> input;
@@ -106,11 +109,15 @@ Speech::~Speech()
 		cout << '1' << " = " << "vocal" << endl;
 		cout << '2' << " = " << "poetic" << endl;
 		cout << '3' << " = " << "prose" << endl;
-		comp = inp_comp(comp);
+		comp = inp_comp();
+		
+		break;
 	default:
 		cout << "Невірно введено спробуйте щераз" << endl;
-		comp = inp_comp(comp);
+		comp = inp_comp();
 		return comp;
 		break;
 	}
+
+	return comp;
 }

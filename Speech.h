@@ -11,10 +11,8 @@ private:
 	Performer performer;
 	std::string speech_nmae;
 
-	Composition inp_comp(Composition comp);
 	void show_comp(Composition comp);
-	 
-
+	
 public:
 	Speech();
 	Speech(Composition, Performer, std::string);
@@ -30,6 +28,7 @@ public:
 	Speech set_performer(Performer);
 	Speech set_speech_nmae(std::string _name);
 
+	Composition inp_comp();
 	~Speech();
 };
 
